@@ -1,0 +1,33 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Avenir, 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+core-header-panel {
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+core-toolbar {
+    background: #03a9f4;
+    color: white;
+}
+
+core-header-panel[drawer] {
+    background:#f2f2f2;
+}
+core-header-panel[main] {
+    background:white;
+}
+
+#tabs {
+    width: 100%;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-transform: uppercase;
+}
