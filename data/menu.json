@@ -1,0 +1,10 @@
+﻿{
+    "photographer": [
+        { "name": "约！", "route": "/start" },
+        { "name": "我的预约", "route": "/orders" }
+    ],
+    "coser": [
+        { "name": "约！", "route": "/start" },
+        { "name": "我的预约", "route": "/orders" }
+    ]
+}
