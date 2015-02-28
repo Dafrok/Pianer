@@ -7,19 +7,28 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
-    <link rel="import" href="../../bower_components/paper-elements/paper-elements.html">
-    <link rel="import" href="../../bower_components/paper-ripple/paper-ripple.html">
-    <link rel="import" href="../../bower_components/core-menu/core-menu.html">
-    <link rel="import" href="../../bower_components/core-item/core-item.html">
+    <!-- Icon -->
     <link rel="import" href="../../bower_components/font-roboto/roboto.html">
+    <!-- Core -->
+    <link rel="import" href="../../bower_components/core-menu/core-menu.html">
+    <link rel="import" href="../../bower_components/core-menu/core-submenu.html">
+    <link rel="import" href="../../bower_components/core-item/core-item.html">
     <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
     <link rel="import" href="../../bower_components/core-drawer-panel/core-drawer-panel.html">
     <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
     <link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
-    <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
     <link rel="import" href="../../bower_components/core-image/core-image.html">
     <link rel="import" href="../../bower_components/core-list/core-list.html">
+    <link rel="import" href="../../bower_components/core-field/core-field.html">
+    <!-- Paper -->
+    <link rel="import" href="../../bower_components/paper-elements/paper-elements.html">
+    <link rel="import" href="../../bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+    <link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html">
+    <!-- Pages -->
     <link rel="import" href="recent-orders.html">
+    <!-- Custom -->
     <link href="../css/app.css" rel="stylesheet" />
 </head>
 
@@ -28,14 +37,20 @@
     <core-drawer-panel>
         <core-header-panel drawer>
             <core-toolbar>
-                <div>约吧！</div>
+                <div>约！</div>
             </core-toolbar>
             <core-menu selected="0" selecteditem="{{item}}">
-                <core-item icon="event" label="最新动态"><paper-ripple fit></paper-ripple></core-item>
-                <core-item icon="theaters" label="约摄影"><paper-ripple fit></paper-ripple></core-item>
-                <core-item icon="face" label="约COSER"><paper-ripple fit></paper-ripple></core-item>
-                <core-item icon="alarm-on" label="我的预约"><paper-ripple fit></paper-ripple></core-item>
-                <core-item icon="settings" label="设置"><paper-ripple fit></paper-ripple></core-item>
+                <core-item icon="event" label="最新动态" horizontal="" center="" layout=""><paper-ripple fit></paper-ripple></core-item>
+                <core-item icon="theaters" label="约摄影"><paper-ripple fit core-drawer-toggle></paper-ripple></core-item>
+                <core-item icon="face" label="约COSER"><paper-ripple fit core-drawer-toggle></paper-ripple></core-item>
+                <core-item icon="alarm-on" label="我的预约"><paper-ripple fit core-drawer-toggle></paper-ripple></core-item>
+                <core-item icon="settings" label="设置"><paper-ripple fit core-drawer-toggle></paper-ripple></core-item>
+                <!--
+                <core-submenu icon="event" label="最新动态" active="">
+                    <core-item label="全部" horizontal="" center="" layout=""><paper-ripple fit></paper-ripple></core-item>
+                    <core-item label="我的关注" horizontal="" center="" layout=""><paper-ripple fit></paper-ripple></core-item>
+                </core-submenu>
+                    -->
             </core-menu>
         </core-header-panel>
         <core-header-panel main>
@@ -43,8 +58,43 @@
                 <core-icon-button icon="menu" core-drawer-toggle></core-icon-button>
                 <div>Pianer</div>
             </core-toolbar>
-            <div class="container" layout vertical center>
+            <div class="content">
+                <core-field horizontal>
+                    <paper-input flex label="Cosplay Name" floatinglabel>
+                        <paper-input-decorator id="decorator" label="{{label}}" floatinglabel="{{floatingLabel}}" value layout vertical>
+                            <input is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="Cosplay Name" aria-label="floating label">
+                        </paper-input-decorator>
+                    </paper-input>
+                </core-field>
+                <core-field horizontal>
+                    <paper-radio-group selected="Male">
+                        <paper-radio-button name="Male" label="Male"></paper-radio-button>
+                        <paper-radio-button name="Female" label="Female"></paper-radio-button>
+                    </paper-radio-group>
+                </core-field>
+                <core-field horizontal>
+                    <paper-input flex label="Charactor" floatinglabel>
+                        <paper-input-decorator id="decorator" label="{{label}}" floatinglabel="{{floatingLabel}}" value layout vertical>
+                            <input is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="Charactor" aria-label="floating label">
+                        </paper-input-decorator>
+                    </paper-input>
+                </core-field>
+                <core-field horizontal>
+                    <paper-input flex label="Position" floatinglabel>
+                        <paper-input-decorator id="decorator" label="{{label}}" floatinglabel="{{floatingLabel}}" value layout vertical>
+                            <input is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="Position" aria-label="floating label">
+                        </paper-input-decorator>
+                    </paper-input>
+                </core-field>
+                <core-field>
+                    <paper-button raised flex>
+                        <core-icon icon="favorite"></core-icon>
+                        &nbsp;Go！
+                    </paper-button>
+                </core-field>
+                <!--
                 <recent-orders></recent-orders>
+                    -->
             </div>
         </core-header-panel>
     </core-drawer-panel>

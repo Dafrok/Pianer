@@ -16,12 +16,24 @@ core-toolbar {
 }
 
 core-header-panel[drawer] {
-    background:#f2f2f2;
-}
-core-header-panel[main] {
-    background:white;
+    background: #f2f2f2;
 }
 
+core-header-panel[main] {
+    background: white;
+}
+
+core-icon-button {
+    overflow: hidden;
+}
+
+paper-button {
+    color: white;
+    background: #cc3366;
+}
+.content {
+    padding:20px;
+}
 #tabs {
     width: 100%;
     margin: 0;
