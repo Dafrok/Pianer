@@ -20,9 +20,11 @@
     <link rel="import" href="../../bower_components/core-image/core-image.html">
     <link rel="import" href="../../bower_components/core-list/core-list.html">
     <link rel="import" href="../../bower_components/core-field/core-field.html">
+    <link rel="import" href="../../bower_components/core-scaffold/core-scaffold.html">
     <!-- Paper -->
     <link rel="import" href="../../bower_components/paper-elements/paper-elements.html">
     <link rel="import" href="../../bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="../../bower_components/paper-input/paper-char-counter.html">
     <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
     <link rel="import" href="../../bower_components/paper-button/paper-button.html">
     <link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html">
@@ -34,70 +36,69 @@
 
 <body unresolved>
 
-    <core-drawer-panel>
-        <core-header-panel drawer>
-            <core-toolbar>
-                <div>约！</div>
+    <core-scaffold>
+
+        <core-header-panel navigation flex>
+            <core-toolbar id="navheader">
+                <span>约！</span>
             </core-toolbar>
-            <core-menu selected="0" selecteditem="{{item}}">
-                <core-item icon="event" label="最新动态" horizontal="" center="" layout=""><paper-ripple fit></paper-ripple></core-item>
+            <core-menu>
+                <core-item icon="event" label="最新动态"><paper-ripple fit core-drawer-toggle></paper-ripple></core-item>
                 <core-item icon="theaters" label="约摄影"><paper-ripple fit core-drawer-toggle></paper-ripple></core-item>
                 <core-item icon="face" label="约COSER"><paper-ripple fit core-drawer-toggle></paper-ripple></core-item>
                 <core-item icon="alarm-on" label="我的预约"><paper-ripple fit core-drawer-toggle></paper-ripple></core-item>
                 <core-item icon="settings" label="设置"><paper-ripple fit core-drawer-toggle></paper-ripple></core-item>
-                <!--
-                <core-submenu icon="event" label="最新动态" active="">
-                    <core-item label="全部" horizontal="" center="" layout=""><paper-ripple fit></paper-ripple></core-item>
-                    <core-item label="我的关注" horizontal="" center="" layout=""><paper-ripple fit></paper-ripple></core-item>
-                </core-submenu>
-                    -->
             </core-menu>
         </core-header-panel>
-        <core-header-panel main>
-            <core-toolbar>
-                <core-icon-button icon="menu" core-drawer-toggle></core-icon-button>
-                <div>Pianer</div>
-            </core-toolbar>
-            <div class="content">
-                <core-field horizontal>
-                    <paper-input flex label="Cosplay Name" floatinglabel>
-                        <paper-input-decorator id="decorator" label="{{label}}" floatinglabel="{{floatingLabel}}" value layout vertical>
-                            <input is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="Cosplay Name" aria-label="floating label">
-                        </paper-input-decorator>
-                    </paper-input>
-                </core-field>
-                <core-field horizontal>
-                    <paper-radio-group selected="Male">
-                        <paper-radio-button name="Male" label="Male"></paper-radio-button>
-                        <paper-radio-button name="Female" label="Female"></paper-radio-button>
-                    </paper-radio-group>
-                </core-field>
-                <core-field horizontal>
-                    <paper-input flex label="Charactor" floatinglabel>
-                        <paper-input-decorator id="decorator" label="{{label}}" floatinglabel="{{floatingLabel}}" value layout vertical>
-                            <input is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="Charactor" aria-label="floating label">
-                        </paper-input-decorator>
-                    </paper-input>
-                </core-field>
-                <core-field horizontal>
-                    <paper-input flex label="Position" floatinglabel>
-                        <paper-input-decorator id="decorator" label="{{label}}" floatinglabel="{{floatingLabel}}" value layout vertical>
-                            <input is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="Position" aria-label="floating label">
-                        </paper-input-decorator>
-                    </paper-input>
-                </core-field>
-                <core-field>
-                    <paper-button raised flex>
-                        <core-icon icon="favorite"></core-icon>
-                        &nbsp;Go！
-                    </paper-button>
-                </core-field>
-                <!--
-                <recent-orders></recent-orders>
-                    -->
-            </div>
-        </core-header-panel>
-    </core-drawer-panel>
+        <span tool flex>Pianer</span>
+        <paper-icon-button id="searchbutton" icon="search" tool></paper-icon-button>
+
+        <div class="content">
+            <core-field horizontal>
+                <paper-input flex label="Cosplay Name" floatinglabel>
+                    <paper-input-decorator id="decorator" label="{{label}}" floatinglabel="{{floatingLabel}}" value layout vertical>
+                        <input is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="Cosplay Name" aria-label="floating label">
+                    </paper-input-decorator>
+                </paper-input>
+            </core-field>
+            <core-field horizontal>
+                <paper-radio-group selected="Male">
+                    <paper-radio-button name="Male" label="Male"></paper-radio-button>
+                    <paper-radio-button name="Female" label="Female"></paper-radio-button>
+                </paper-radio-group>
+            </core-field>
+            <core-field horizontal>
+                <paper-input flex label="Charactor" floatinglabel>
+                    <paper-input-decorator id="decorator" label="{{label}}" floatinglabel="{{floatingLabel}}" value layout vertical>
+                        <input is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="Charactor" aria-label="floating label">
+                    </paper-input-decorator>
+                </paper-input>
+            </core-field>
+            <core-field horizontal>
+                <paper-input flex label="Position" floatinglabel>
+                    <paper-input-decorator id="decorator" label="{{label}}" floatinglabel="{{floatingLabel}}" value layout vertical>
+                        <input is="core-input" id="input" committedvalue="{{committedValue}}" on-change="{{ changeAction }}" placeholder="Position" aria-label="floating label">
+                    </paper-input-decorator>
+                </paper-input>
+            </core-field>
+            <core-field horizontal>
+                <paper-input-decorator label="Remark" floatinglabel flex>
+                    <paper-autogrow-textarea>
+                        <textarea maxlength="200" id="remark" placeholder="with autogrowing text area + floatingLabel" aria-label="with autogrowing text area + floatingLabel"></textarea>
+                    </paper-autogrow-textarea>
+                    <paper-char-counter class="footer" target="remark"></paper-char-counter>
+                </paper-input-decorator>
+            </core-field>
+            <core-field>
+                <paper-button raised>
+                    <core-icon icon="favorite"></core-icon>
+                    &nbsp;Go！
+                </paper-button>
+            </core-field>
+        </div>
+    </core-scaffold>
+
+    
 
     <script src="../js/app.js"></script>
 </body>
